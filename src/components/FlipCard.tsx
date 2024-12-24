@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Github, Instagram, MessageSquare, Mail } from 'lucide-react';
 import GlitchImage from './GlitchImage';
 import GlitchIcon from './GlitchIcon';
