@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Github, Instagram, MessageSquare, Mail } from 'lucide-react';
 import GlitchImage from './GlitchImage';
 import GlitchIcon from './GlitchIcon';
 import alastor from '../images/alastor.jpg';
+import ScrambledText from './ScrambledText'; // Import the ScrambledText component
 
 const FlipCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isHovered, setIsHovered] = useState(false); // Track hover state
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -15,10 +17,21 @@ const FlipCard = () => {
     e.stopPropagation(); // Prevent card flip when clicking links
   };
 
+  // Trigger scrambling effect on hover
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <div
       className="perspective-1000 w-[300px] sm:w-[600px] h-[500px] sm:h-[300px] cursor-pointer"
       onClick={handleFlip}
+      onMouseEnter={handleMouseEnter} // Trigger scramble effect on hover
+      onMouseLeave={handleMouseLeave} // Stop scrambling when mouse leaves
     >
       <div
         className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
@@ -35,14 +48,12 @@ const FlipCard = () => {
                 className="w-24 h-24 sm:w-32 sm:h-32 rounded-full"
               />
               <div className="text-text text-center sm:text-left">
-                <h1 className="text-2xl sm:text-3xl font-bold text-secondary">
-                  lifeissad
-                </h1>
+                <ScrambledText text="lifeissad" isHovered={isHovered} />{' '}
+                {/* Scramble on hover */}
                 <p className="text-lg opacity-80">
                   <span className="text-secondary">AKA</span> Lifeissad21,
                   Anarchist1984, George (IRL)
                 </p>
-
                 {/* Hide quote on smaller screens */}
                 <p className="mt-4 text-lg sm:block hidden">
                   We adore chaos because we love to produce order.
