@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+@layer components {
+  .glitch-container .glitch-image--r {
+    animation: glitch-r 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    mix-blend-mode: multiply;
+  }
+
+  .glitch-container .glitch-image--g {
+    animation: glitch-g 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    mix-blend-mode: multiply;
+  }
+
+  .glitch-container .glitch-image--b {
+    animation: glitch-b 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    mix-blend-mode: multiply;
+  }
+
+  /* Intense glitch effect for icons on hover */
+  .glitch-icon-container:hover .icon-r {
+    animation: icon-glitch-r 0.3s ease-in-out infinite;
+    opacity: 0.8;
+  }
+
+  .glitch-icon-container:hover .icon-g {
+    animation: icon-glitch-g 0.3s ease-in-out infinite;
+    opacity: 0.8;
+  }
+
+  .glitch-icon-container:hover .icon-b {
+    animation: icon-glitch-b 0.3s ease-in-out infinite;
+    opacity: 0.8;
+  }
+}
+
+@keyframes glitch-r {
+  0% {
+    transform: translate(0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    opacity: 0.75;
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translate(2px, 2px);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translate(2px, -2px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes glitch-g {
+  0% {
+    transform: translate(0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: translate(2px, -2px);
+    opacity: 0.75;
+  }
+  40% {
+    transform: translate(-2px, 2px);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translate(-2px, -2px);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translate(2px, 2px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes glitch-b {
+  0% {
+    transform: translate(0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: translate(-2px, -2px);
+    opacity: 0.75;
+  }
+  40% {
+    transform: translate(2px, 2px);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translate(2px, -2px);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translate(-2px, 2px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 0.5;
+  }
+}
+
+/* Icon glitch animations */
+@keyframes icon-glitch-r {
+  0%, 100% { transform: translate(0); opacity: 0; }
+  40% { transform: translate(-2px, 1px); opacity: 0.8; }
+  60% { transform: translate(1px, -1px); opacity: 0.8; }
+  80% { transform: translate(-1px, 2px); opacity: 0; }
+}
+
+@keyframes icon-glitch-g {
+  0%, 100% { transform: translate(0); opacity: 0; }
+  40% { transform: translate(2px, -1px); opacity: 0.8; }
+  60% { transform: translate(-1px, 1px); opacity: 0.8; }
+  80% { transform: translate(1px, -2px); opacity: 0; }
+}
+
+@keyframes icon-glitch-b {
+  0%, 100% { transform: translate(0); opacity: 0; }
+  40% { transform: translate(1px, 1px); opacity: 0.8; }
+  60% { transform: translate(-1px, -1px); opacity: 0.8; }
+  80% { transform: translate(2px, 1px); opacity: 0; }
+}
+
+body {
+  @apply bg-background text-text;
+}
