@@ -28,4 +28,4 @@ To set up and run the project locally, follow these steps:
 
 4. Open your browser and navigate to `http://localhost:3000` to see the application running.
 
-Visit the site on `https:/lifeissad.pages.dev`
+Visit the site on [https:/lifeissad.pages.dev](https:/lifeissad.pages.dev)
